@@ -18,21 +18,25 @@
 // }
 
 // 3 Loops, O(N)
-function same(arr1, arr2) {
+const same = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
 
   let numSquared = {};
 
   for (let num of arr1) {
-    if (!numSquared[num ** 2]) numSquared[num ** 2] = 1;
-    else numSquared[num ** 2]++;
+    // if (!numSquared[num ** 2]) numSquared[num ** 2] = 1;
+    // else numSquared[num ** 2]++;
+    numSquared[num ** 2] = numSquared[num ** 2] + 1 || 1;
   }
+  console.log(numSquared);
 
   let numFreq2 = {};
   for (let num of arr2) {
-    if (!numFreq2[num]) numFreq2[num] = 1;
-    else numFreq2[num]++;
+    // if (!numFreq2[num]) numFreq2[num] = 1;
+    // else numFreq2[num]++;
+    numFreq2[num] = numFreq2[num] + 1 || 1;
   }
+  console.log(numFreq2);
 
   // numSquared and numFreq2 should have same key/vals
   for (let key in numSquared) {
@@ -41,6 +45,6 @@ function same(arr1, arr2) {
   }
 
   return true;
-}
+};
 
 console.log(same([1, 2, 3, 2], [9, 1, 4, 4]));
