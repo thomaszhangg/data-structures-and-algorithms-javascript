@@ -1,5 +1,5 @@
 // Return true, if arr2 has all of arr1's values but squared
-// order does not matter
+// Order does not matter
 
 // NAIVE O(N^2), indexOf takes O(N)
 // function same(arr1, arr2){
@@ -24,16 +24,12 @@ const same = (arr1, arr2) => {
   let numSquared = {};
 
   for (let num of arr1) {
-    // if (!numSquared[num ** 2]) numSquared[num ** 2] = 1;
-    // else numSquared[num ** 2]++;
     numSquared[num ** 2] = numSquared[num ** 2] + 1 || 1;
   }
   console.log(numSquared);
 
   let numFreq2 = {};
   for (let num of arr2) {
-    // if (!numFreq2[num]) numFreq2[num] = 1;
-    // else numFreq2[num]++;
     numFreq2[num] = numFreq2[num] + 1 || 1;
   }
   console.log(numFreq2);
